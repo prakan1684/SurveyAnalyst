@@ -1,0 +1,50 @@
+{
+  "survey_id": "survey_123",
+  "title": "Customer Satisfaction Survey",
+  "description": "Help us improve our services by providing your feedback",
+  "created_at": "2025-03-18",
+  "questions": [
+    {
+      "id": "satisfaction",
+      "text": "How satisfied are you with our product?",
+      "type": "rating",
+      "scale": 5
+    },
+    {
+      "id": "recommendation",
+      "text": "How likely are you to recommend our product to others?",
+      "type": "rating",
+      "scale": 10
+    },
+    {
+      "id": "ease_of_use",
+      "text": "How easy was it to use our product?",
+      "type": "rating",
+      "scale": 5
+    },
+    {
+      "id": "features",
+      "text": "Which features do you use most often?",
+      "type": "multiple_choice",
+      "options": [
+        "Dashboard",
+        "Reports",
+        "Analytics",
+        "Customization",
+        "Integration"
+      ]
+    },
+    {
+      "id": "improvement",
+      "text": "What area needs the most improvement?",
+      "type": "multiple_choice",
+      "options": [
+        "UI/UX",
+        "Performance",
+        "Features",
+        "Support",
+        "Documentation"
+      ]
+    }
+  ]
+}
