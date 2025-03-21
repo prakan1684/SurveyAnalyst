@@ -1,0 +1,1384 @@
+{
+  "survey_id": "survey_123",
+  "responses": [
+    {
+      "id": "resp_1",
+      "submitted_at": "2025-03-15 20:21:09",
+      "user_type": "Premium",
+      "completion_time": 410,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 10,
+        "ease_of_use": 5,
+        "features": "Customization",
+        "improvement": "Support"
+      }
+    },
+    {
+      "id": "resp_2",
+      "submitted_at": "2025-02-26 07:21:09",
+      "user_type": "Free",
+      "completion_time": 535,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 6,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "Documentation"
+      }
+    },
+    {
+      "id": "resp_3",
+      "submitted_at": "2025-03-10 22:21:09",
+      "user_type": "Free",
+      "completion_time": 274,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 3,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "UI/UX"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_4",
+      "submitted_at": "2025-02-22 09:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 528,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 3,
+        "ease_of_use": 1,
+        "features": "Reports",
+        "improvement": "Performance"
+      }
+    },
+    {
+      "id": "resp_5",
+      "submitted_at": "2025-02-19 10:21:09",
+      "user_type": "Premium",
+      "completion_time": 319,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 3,
+        "ease_of_use": 5,
+        "features": "Analytics",
+        "improvement": "Documentation"
+      }
+    },
+    {
+      "id": "resp_6",
+      "submitted_at": "2025-03-11 12:21:09",
+      "user_type": "Premium",
+      "completion_time": 514,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 5,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_7",
+      "submitted_at": "2025-03-04 09:21:09",
+      "user_type": "Premium",
+      "completion_time": 264,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 2,
+        "ease_of_use": 4,
+        "features": "Integration",
+        "improvement": "Documentation"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_8",
+      "submitted_at": "2025-03-08 19:21:09",
+      "user_type": "Basic",
+      "completion_time": 331,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 7,
+        "ease_of_use": 3,
+        "features": "Integration",
+        "improvement": "Performance"
+      }
+    },
+    {
+      "id": "resp_9",
+      "submitted_at": "2025-02-25 02:21:09",
+      "user_type": "Premium",
+      "completion_time": 91,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 3,
+        "ease_of_use": 1,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_10",
+      "submitted_at": "2025-03-06 17:21:09",
+      "user_type": "Free",
+      "completion_time": 527,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 6,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "UI/UX"
+      }
+    },
+    {
+      "id": "resp_11",
+      "submitted_at": "2025-03-04 02:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 498,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 6,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "Performance"
+      },
+      "age_group": "45-54"
+    },
+    {
+      "id": "resp_12",
+      "submitted_at": "2025-03-04 06:21:09",
+      "user_type": "Premium",
+      "completion_time": 586,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 0,
+        "ease_of_use": 5,
+        "features": "Customization",
+        "improvement": "UI/UX"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_13",
+      "submitted_at": "2025-03-15 02:21:09",
+      "user_type": "Free",
+      "completion_time": 101,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 10,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "Support"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_14",
+      "submitted_at": "2025-02-28 14:21:09",
+      "user_type": "Basic",
+      "completion_time": 381,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 3,
+        "ease_of_use": 2,
+        "features": "Customization",
+        "improvement": "UI/UX"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_15",
+      "submitted_at": "2025-03-13 16:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 318,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 8,
+        "ease_of_use": 3,
+        "features": "Dashboard",
+        "improvement": "Documentation"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_16",
+      "submitted_at": "2025-03-13 13:21:09",
+      "user_type": "Basic",
+      "completion_time": 241,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 0,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "Features"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_17",
+      "submitted_at": "2025-02-16 18:21:09",
+      "user_type": "Free",
+      "completion_time": 291,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 8,
+        "ease_of_use": 5,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_18",
+      "submitted_at": "2025-03-09 00:21:09",
+      "user_type": "Free",
+      "completion_time": 380,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 5,
+        "ease_of_use": 1,
+        "features": "Dashboard",
+        "improvement": "UI/UX"
+      }
+    },
+    {
+      "id": "resp_19",
+      "submitted_at": "2025-03-19 12:21:09",
+      "user_type": "Free",
+      "completion_time": 396,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 0,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "Performance"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_20",
+      "submitted_at": "2025-03-06 12:21:09",
+      "user_type": "Basic",
+      "completion_time": 363,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 1,
+        "ease_of_use": 3,
+        "features": "Reports",
+        "improvement": "UI/UX"
+      }
+    },
+    {
+      "id": "resp_21",
+      "submitted_at": "2025-03-09 17:21:09",
+      "user_type": "Basic",
+      "completion_time": 559,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 6,
+        "ease_of_use": 3,
+        "features": "Integration",
+        "improvement": "UI/UX"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_22",
+      "submitted_at": "2025-03-12 03:21:09",
+      "user_type": "Basic",
+      "completion_time": 446,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 3,
+        "ease_of_use": 5,
+        "features": "Reports",
+        "improvement": "Performance"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_23",
+      "submitted_at": "2025-02-25 13:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 477,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 6,
+        "ease_of_use": 4,
+        "features": "Dashboard",
+        "improvement": "Features"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_24",
+      "submitted_at": "2025-03-10 10:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 123,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 5,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "UI/UX"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_25",
+      "submitted_at": "2025-03-05 13:21:09",
+      "user_type": "Free",
+      "completion_time": 561,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 4,
+        "ease_of_use": 1,
+        "features": "Customization",
+        "improvement": "UI/UX"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_26",
+      "submitted_at": "2025-02-18 07:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 263,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 1,
+        "ease_of_use": 2,
+        "features": "Integration",
+        "improvement": "UI/UX"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_27",
+      "submitted_at": "2025-03-12 15:21:09",
+      "user_type": "Free",
+      "completion_time": 395,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 5,
+        "ease_of_use": 5,
+        "features": "Analytics",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_28",
+      "submitted_at": "2025-02-22 23:21:09",
+      "user_type": "Basic",
+      "completion_time": 356,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 6,
+        "ease_of_use": 1,
+        "features": "Customization",
+        "improvement": "Support"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_29",
+      "submitted_at": "2025-03-16 05:21:09",
+      "user_type": "Basic",
+      "completion_time": 440,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 2,
+        "ease_of_use": 2,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_30",
+      "submitted_at": "2025-03-09 10:21:09",
+      "user_type": "Premium",
+      "completion_time": 188,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 10,
+        "ease_of_use": 3,
+        "features": "Integration",
+        "improvement": "Features"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_31",
+      "submitted_at": "2025-02-27 22:21:09",
+      "user_type": "Free",
+      "completion_time": 135,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 5,
+        "ease_of_use": 3,
+        "features": "Reports",
+        "improvement": "UI/UX"
+      }
+    },
+    {
+      "id": "resp_32",
+      "submitted_at": "2025-03-02 01:21:09",
+      "user_type": "Free",
+      "completion_time": 225,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 7,
+        "ease_of_use": 3,
+        "features": "Dashboard",
+        "improvement": "Documentation"
+      },
+      "age_group": "45-54"
+    },
+    {
+      "id": "resp_33",
+      "submitted_at": "2025-03-10 05:21:09",
+      "user_type": "Free",
+      "completion_time": 159,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 4,
+        "ease_of_use": 4,
+        "features": "Dashboard",
+        "improvement": "Support"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_34",
+      "submitted_at": "2025-02-19 09:21:09",
+      "user_type": "Basic",
+      "completion_time": 211,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 8,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "Features"
+      }
+    },
+    {
+      "id": "resp_35",
+      "submitted_at": "2025-03-02 09:21:09",
+      "user_type": "Basic",
+      "completion_time": 398,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 1,
+        "ease_of_use": 3,
+        "features": "Dashboard",
+        "improvement": "UI/UX"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_36",
+      "submitted_at": "2025-02-25 17:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 351,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 10,
+        "ease_of_use": 5,
+        "features": "Integration",
+        "improvement": "Support"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_37",
+      "submitted_at": "2025-03-11 15:21:09",
+      "user_type": "Basic",
+      "completion_time": 492,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 2,
+        "ease_of_use": 1,
+        "features": "Dashboard",
+        "improvement": "Features"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_38",
+      "submitted_at": "2025-03-10 16:21:09",
+      "user_type": "Free",
+      "completion_time": 200,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 3,
+        "ease_of_use": 3,
+        "features": "Reports",
+        "improvement": "Performance"
+      },
+      "age_group": "45-54"
+    },
+    {
+      "id": "resp_39",
+      "submitted_at": "2025-03-13 15:21:09",
+      "user_type": "Free",
+      "completion_time": 322,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 8,
+        "ease_of_use": 5,
+        "features": "Analytics",
+        "improvement": "Features"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_40",
+      "submitted_at": "2025-03-03 02:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 298,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 10,
+        "ease_of_use": 3,
+        "features": "Integration",
+        "improvement": "Features"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_41",
+      "submitted_at": "2025-02-23 04:21:09",
+      "user_type": "Free",
+      "completion_time": 157,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 0,
+        "ease_of_use": 3,
+        "features": "Customization",
+        "improvement": "Support"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_42",
+      "submitted_at": "2025-02-25 16:21:09",
+      "user_type": "Free",
+      "completion_time": 476,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 6,
+        "ease_of_use": 1,
+        "features": "Customization",
+        "improvement": "UI/UX"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_43",
+      "submitted_at": "2025-03-14 20:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 481,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 10,
+        "ease_of_use": 5,
+        "features": "Dashboard",
+        "improvement": "Features"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_44",
+      "submitted_at": "2025-03-19 12:21:09",
+      "user_type": "Premium",
+      "completion_time": 532,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 0,
+        "ease_of_use": 3,
+        "features": "Integration",
+        "improvement": "Documentation"
+      }
+    },
+    {
+      "id": "resp_45",
+      "submitted_at": "2025-03-04 21:21:09",
+      "user_type": "Free",
+      "completion_time": 118,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 6,
+        "ease_of_use": 4,
+        "features": "Reports",
+        "improvement": "Documentation"
+      }
+    },
+    {
+      "id": "resp_46",
+      "submitted_at": "2025-03-17 04:21:09",
+      "user_type": "Premium",
+      "completion_time": 71,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 10,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "Performance"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_47",
+      "submitted_at": "2025-02-20 07:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 467,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 4,
+        "ease_of_use": 3,
+        "features": "Analytics",
+        "improvement": "UI/UX"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_48",
+      "submitted_at": "2025-03-02 20:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 361,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 2,
+        "ease_of_use": 2,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_49",
+      "submitted_at": "2025-03-11 08:21:09",
+      "user_type": "Premium",
+      "completion_time": 567,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 0,
+        "ease_of_use": 3,
+        "features": "Customization",
+        "improvement": "Documentation"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_50",
+      "submitted_at": "2025-03-07 07:21:09",
+      "user_type": "Basic",
+      "completion_time": 233,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 9,
+        "ease_of_use": 5,
+        "features": "Analytics",
+        "improvement": "Features"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_51",
+      "submitted_at": "2025-03-05 18:21:09",
+      "user_type": "Premium",
+      "completion_time": 598,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 5,
+        "ease_of_use": 3,
+        "features": "Dashboard",
+        "improvement": "Documentation"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_52",
+      "submitted_at": "2025-03-01 12:21:09",
+      "user_type": "Free",
+      "completion_time": 457,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 9,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "Documentation"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_53",
+      "submitted_at": "2025-02-21 07:21:09",
+      "user_type": "Basic",
+      "completion_time": 327,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 0,
+        "ease_of_use": 5,
+        "features": "Analytics",
+        "improvement": "Features"
+      }
+    },
+    {
+      "id": "resp_54",
+      "submitted_at": "2025-03-11 08:21:09",
+      "user_type": "Free",
+      "completion_time": 299,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 2,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "Documentation"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_55",
+      "submitted_at": "2025-03-10 18:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 227,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 4,
+        "ease_of_use": 1,
+        "features": "Reports",
+        "improvement": "Features"
+      }
+    },
+    {
+      "id": "resp_56",
+      "submitted_at": "2025-03-19 08:21:09",
+      "user_type": "Free",
+      "completion_time": 214,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 1,
+        "ease_of_use": 5,
+        "features": "Analytics",
+        "improvement": "Features"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_57",
+      "submitted_at": "2025-02-19 17:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 283,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 0,
+        "ease_of_use": 3,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "45-54"
+    },
+    {
+      "id": "resp_58",
+      "submitted_at": "2025-02-26 12:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 261,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 6,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_59",
+      "submitted_at": "2025-03-08 10:21:09",
+      "user_type": "Free",
+      "completion_time": 283,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 9,
+        "ease_of_use": 3,
+        "features": "Customization",
+        "improvement": "Support"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_60",
+      "submitted_at": "2025-03-19 09:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 432,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 6,
+        "ease_of_use": 2,
+        "features": "Analytics",
+        "improvement": "Support"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_61",
+      "submitted_at": "2025-03-17 23:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 122,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 0,
+        "ease_of_use": 3,
+        "features": "Customization",
+        "improvement": "Support"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_62",
+      "submitted_at": "2025-02-17 11:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 106,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 0,
+        "ease_of_use": 1,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_63",
+      "submitted_at": "2025-03-09 10:21:09",
+      "user_type": "Free",
+      "completion_time": 477,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 7,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "Documentation"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_64",
+      "submitted_at": "2025-03-18 06:21:09",
+      "user_type": "Free",
+      "completion_time": 449,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 2,
+        "ease_of_use": 1,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_65",
+      "submitted_at": "2025-02-25 06:21:09",
+      "user_type": "Premium",
+      "completion_time": 323,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 1,
+        "ease_of_use": 1,
+        "features": "Customization",
+        "improvement": "Features"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_66",
+      "submitted_at": "2025-02-27 10:21:09",
+      "user_type": "Basic",
+      "completion_time": 98,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 0,
+        "ease_of_use": 2,
+        "features": "Integration",
+        "improvement": "Features"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_67",
+      "submitted_at": "2025-03-19 08:21:09",
+      "user_type": "Free",
+      "completion_time": 546,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 7,
+        "ease_of_use": 2,
+        "features": "Analytics",
+        "improvement": "Performance"
+      }
+    },
+    {
+      "id": "resp_68",
+      "submitted_at": "2025-03-01 01:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 275,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 3,
+        "ease_of_use": 4,
+        "features": "Reports",
+        "improvement": "Support"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_69",
+      "submitted_at": "2025-03-10 10:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 412,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 8,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_70",
+      "submitted_at": "2025-02-22 06:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 220,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 3,
+        "ease_of_use": 5,
+        "features": "Dashboard",
+        "improvement": "Features"
+      }
+    },
+    {
+      "id": "resp_71",
+      "submitted_at": "2025-03-10 16:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 114,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 2,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "Support"
+      }
+    },
+    {
+      "id": "resp_72",
+      "submitted_at": "2025-03-06 23:21:09",
+      "user_type": "Free",
+      "completion_time": 202,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 2,
+        "ease_of_use": 1,
+        "features": "Dashboard",
+        "improvement": "UI/UX"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_73",
+      "submitted_at": "2025-03-04 16:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 357,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 5,
+        "ease_of_use": 5,
+        "features": "Customization",
+        "improvement": "Features"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_74",
+      "submitted_at": "2025-03-13 06:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 111,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 3,
+        "ease_of_use": 5,
+        "features": "Dashboard",
+        "improvement": "Features"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_75",
+      "submitted_at": "2025-03-07 06:21:09",
+      "user_type": "Basic",
+      "completion_time": 216,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 6,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "Support"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_76",
+      "submitted_at": "2025-02-27 06:21:09",
+      "user_type": "Free",
+      "completion_time": 600,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 6,
+        "ease_of_use": 4,
+        "features": "Analytics",
+        "improvement": "Support"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_77",
+      "submitted_at": "2025-02-19 13:21:09",
+      "user_type": "Basic",
+      "completion_time": 557,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 7,
+        "ease_of_use": 3,
+        "features": "Analytics",
+        "improvement": "Performance"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_78",
+      "submitted_at": "2025-02-25 17:21:09",
+      "user_type": "Premium",
+      "completion_time": 346,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 10,
+        "ease_of_use": 1,
+        "features": "Integration",
+        "improvement": "Support"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_79",
+      "submitted_at": "2025-02-27 04:21:09",
+      "user_type": "Free",
+      "completion_time": 361,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 2,
+        "ease_of_use": 1,
+        "features": "Analytics",
+        "improvement": "Performance"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_80",
+      "submitted_at": "2025-03-18 23:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 545,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 8,
+        "ease_of_use": 3,
+        "features": "Analytics",
+        "improvement": "Performance"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_81",
+      "submitted_at": "2025-02-18 21:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 192,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 2,
+        "ease_of_use": 2,
+        "features": "Analytics",
+        "improvement": "Documentation"
+      },
+      "age_group": "45-54"
+    },
+    {
+      "id": "resp_82",
+      "submitted_at": "2025-02-26 01:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 286,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 7,
+        "ease_of_use": 2,
+        "features": "Customization",
+        "improvement": "Documentation"
+      }
+    },
+    {
+      "id": "resp_83",
+      "submitted_at": "2025-02-27 10:21:09",
+      "user_type": "Premium",
+      "completion_time": 359,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 6,
+        "ease_of_use": 2,
+        "features": "Integration",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_84",
+      "submitted_at": "2025-03-01 21:21:09",
+      "user_type": "Basic",
+      "completion_time": 282,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 4,
+        "ease_of_use": 5,
+        "features": "Integration",
+        "improvement": "Documentation"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_85",
+      "submitted_at": "2025-03-09 06:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 154,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 0,
+        "ease_of_use": 3,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_86",
+      "submitted_at": "2025-03-10 17:21:09",
+      "user_type": "Enterprise",
+      "completion_time": 225,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 7,
+        "ease_of_use": 4,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_87",
+      "submitted_at": "2025-03-04 09:21:09",
+      "user_type": "Premium",
+      "completion_time": 291,
+      "answers": {
+        "satisfaction": 3,
+        "recommendation": 8,
+        "ease_of_use": 3,
+        "features": "Analytics",
+        "improvement": "Documentation"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_88",
+      "submitted_at": "2025-02-27 19:21:09",
+      "user_type": "Premium",
+      "completion_time": 411,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 8,
+        "ease_of_use": 1,
+        "features": "Dashboard",
+        "improvement": "Performance"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_89",
+      "submitted_at": "2025-03-13 18:21:09",
+      "user_type": "Basic",
+      "completion_time": 448,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 3,
+        "ease_of_use": 5,
+        "features": "Customization",
+        "improvement": "Documentation"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_90",
+      "submitted_at": "2025-02-21 19:21:09",
+      "user_type": "Basic",
+      "completion_time": 75,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 2,
+        "ease_of_use": 3,
+        "features": "Analytics",
+        "improvement": "Support"
+      },
+      "age_group": "18-24"
+    },
+    {
+      "id": "resp_91",
+      "submitted_at": "2025-03-17 13:21:09",
+      "user_type": "Premium",
+      "completion_time": 456,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 7,
+        "ease_of_use": 5,
+        "features": "Dashboard",
+        "improvement": "Support"
+      },
+      "age_group": "25-34"
+    },
+    {
+      "id": "resp_92",
+      "submitted_at": "2025-02-24 20:21:09",
+      "user_type": "Premium",
+      "completion_time": 83,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 7,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "45-54"
+    },
+    {
+      "id": "resp_93",
+      "submitted_at": "2025-03-15 21:21:09",
+      "user_type": "Free",
+      "completion_time": 577,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 7,
+        "ease_of_use": 4,
+        "features": "Reports",
+        "improvement": "Documentation"
+      }
+    },
+    {
+      "id": "resp_94",
+      "submitted_at": "2025-03-09 06:21:09",
+      "user_type": "Basic",
+      "completion_time": 221,
+      "answers": {
+        "satisfaction": 4,
+        "recommendation": 10,
+        "ease_of_use": 1,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "35-44"
+    },
+    {
+      "id": "resp_95",
+      "submitted_at": "2025-03-11 02:21:09",
+      "user_type": "Premium",
+      "completion_time": 528,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 6,
+        "ease_of_use": 1,
+        "features": "Analytics",
+        "improvement": "UI/UX"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_96",
+      "submitted_at": "2025-02-24 17:21:09",
+      "user_type": "Basic",
+      "completion_time": 297,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 6,
+        "ease_of_use": 1,
+        "features": "Reports",
+        "improvement": "Documentation"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_97",
+      "submitted_at": "2025-02-28 12:21:09",
+      "user_type": "Free",
+      "completion_time": 497,
+      "answers": {
+        "satisfaction": 5,
+        "recommendation": 2,
+        "ease_of_use": 5,
+        "features": "Customization",
+        "improvement": "Support"
+      }
+    },
+    {
+      "id": "resp_98",
+      "submitted_at": "2025-02-20 23:21:09",
+      "user_type": "Free",
+      "completion_time": 518,
+      "answers": {
+        "satisfaction": 1,
+        "recommendation": 8,
+        "ease_of_use": 2,
+        "features": "Dashboard",
+        "improvement": "UI/UX"
+      }
+    },
+    {
+      "id": "resp_99",
+      "submitted_at": "2025-03-16 12:21:09",
+      "user_type": "Free",
+      "completion_time": 448,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 7,
+        "ease_of_use": 2,
+        "features": "Reports",
+        "improvement": "Performance"
+      },
+      "age_group": "55+"
+    },
+    {
+      "id": "resp_100",
+      "submitted_at": "2025-03-06 01:21:09",
+      "user_type": "Basic",
+      "completion_time": 491,
+      "answers": {
+        "satisfaction": 2,
+        "recommendation": 4,
+        "ease_of_use": 4,
+        "features": "Customization",
+        "improvement": "Performance"
+      },
+      "age_group": "45-54"
+    }
+  ]
+}

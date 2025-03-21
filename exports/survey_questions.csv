@@ -1,0 +1,11 @@
+column_name,question_text
+satisfaction,How satisfied are you with our product?
+recommendation,How likely are you to recommend our product to others?
+ease_of_use,How easy was it to use our product?
+features,Which features do you use most often?
+improvement,What area needs the most improvement?
+response_id,Unique identifier for each survey response
+timestamp,Date and time when the survey was submitted
+age_group,Age group of the respondent
+user_type,"Type of user account (Free, Basic, Premium, Enterprise)"
+completion_time,Time taken to complete the survey in seconds
