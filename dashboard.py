@@ -1,164 +1,233 @@
 import streamlit as st
-import pandas as pd
 import os
 from survey_analytics import SurveyAnalytics
 from survey_chatbot import SurveyChatbot
 
-def main():
-    st.set_page_config(page_title="Survey Analytics", page_icon="📊", layout="wide")
-    st.title("Surveyed - Survey Analytics Dashboard")
+# Set page config must be the first Streamlit command
+st.set_page_config(page_title="Survey Insight Bot", page_icon="📊", layout="wide")
+
+# Initialize session state for analytics and chatbot - do this outside the main function
+if 'analytics' not in st.session_state:
+    print("Loaded survey data from JSON files in 'survey_data'")
+    st.session_state.analytics = SurveyAnalytics("survey_data")
     
-    # Sidebar for data source selection
-    st.sidebar.header("Data Settings")
-    json_dir = st.sidebar.text_input("JSON Data Directory", "survey_data")
+if 'chatbot' not in st.session_state:
+    st.session_state.chatbot = SurveyChatbot(st.session_state.analytics)
     
-    # Initialize analytics with the selected data directory
-    analytics = SurveyAnalytics(json_dir)
-    
-    # Check if directory exists
-    if not os.path.exists(json_dir):
-        st.sidebar.warning(f"Directory '{json_dir}' does not exist.")
-        if st.sidebar.button("Create Sample JSON Data"):
-            from json_data_loader import SurveyJSONLoader
-            loader = SurveyJSONLoader(json_dir)
-            if loader.create_sample_data():
-                st.sidebar.success(f"Created sample data in '{json_dir}' directory")
-                # Reload analytics with new data
-                analytics = SurveyAnalytics(json_dir)
-            else:
-                st.sidebar.error("Failed to create sample data")
-    
-    # Display survey information
-    metadata = analytics.get_survey_metadata()
-    st.sidebar.subheader("Survey Information")
-    st.sidebar.write(f"**Title:** {metadata.get('survey_title', 'N/A')}")
-    st.sidebar.write(f"**ID:** {metadata.get('survey_id', 'N/A')}")
-    st.sidebar.write(f"**Created:** {metadata.get('created_at', 'N/A')}")
-    st.sidebar.write(f"**Questions:** {len(metadata.get('questions', {}))}")
-    
-    # Get basic stats
-    stats = analytics.get_basic_stats()
-    response_counts = analytics.get_response_counts()
-    
-    # Display basic statistics
-    st.header("Survey Overview")
-    
-    # Check if we have data
-    if stats["total_responses"] == 0:
-        st.warning("No survey data available. Please check your data directory or create sample data.")
-    else:
-        # Display key metrics that work for any survey
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Total Responses", stats["total_responses"])
+if 'messages' not in st.session_state:
+    st.session_state.messages = []
+
+# Function to handle message sending
+def send_message():
+    if st.session_state.input_field and st.session_state.input_field.strip():
+        user_message = st.session_state.input_field
         
-        with col2:
-            st.metric("Average Completion Time", f"{stats['avg_completion_time']:.0f} sec" if stats['avg_completion_time'] > 0 else "N/A")
-        
-        # Display survey questions and response counts
-        st.subheader("Survey Questions")
-        questions = analytics.get_questions_summary()
-        
-        if questions:
-            # Create tabs for each question
-            question_ids = list(questions.keys())
-            if question_ids:
-                # Group questions into tabs (max 5 per tab to avoid crowding)
-                tab_size = 5
-                tab_groups = [question_ids[i:i + tab_size] for i in range(0, len(question_ids), tab_size)]
-                
-                # Create tabs for each group
-                tabs = st.tabs([f"Questions {i*tab_size+1}-{min((i+1)*tab_size, len(question_ids))}" for i in range(len(tab_groups))])
-                
-                for i, tab in enumerate(tabs):
-                    with tab:
-                        for q_id in tab_groups[i]:
-                            with st.expander(f"{questions[q_id]}", expanded=False):
-                                # Get data for this question
-                                q_data = analytics.get_data_for_question(q_id)
-                                
-                                if not q_data.empty:
-                                    # Show basic stats for this question
-                                    if pd.api.types.is_numeric_dtype(q_data):
-                                        # For numeric questions
-                                        st.write(f"**Average**: {q_data.mean():.2f}")
-                                        st.write(f"**Median**: {q_data.median():.2f}")
-                                        st.write(f"**Range**: {q_data.min()} to {q_data.max()}")
-                                    else:
-                                        # For categorical/text questions
-                                        # Show top 5 responses
-                                        value_counts = q_data.value_counts().head(5)
-                                        if not value_counts.empty:
-                                            st.write("**Top Responses:**")
-                                            for val, count in value_counts.items():
-                                                st.write(f"- {val}: {count} responses ({count/len(q_data)*100:.1f}%)")
-                                else:
-                                    st.write("No data available for this question.")
-        else:
-            st.info("No questions found in the survey data.")
-        
-        # Display response counts by user type if available
-        if response_counts:
-            st.subheader("Responses by User Type")
-            
-            # Create a DataFrame for better display
-            user_type_df = pd.DataFrame({
-                'User Type': list(response_counts.keys()),
-                'Count': list(response_counts.values())
-            })
-            
-            # Display as a table
-            st.table(user_type_df)
-    
-    # Display questions
-    # questions = analytics.get_questions_summary()
-    # if questions:
-    #     with st.expander("Survey Questions", expanded=False):
-    #         st.subheader("Available Survey Questions")
-            
-    #         # Display each question with its corresponding column name
-    #         for column, question_text in questions.items():
-    #             st.write(f"**{column}**: {question_text}")
-    
-    # Survey Chatbot section
-    st.header("Survey Chatbot")
-    st.write("Ask questions about your survey data to gain insights.")
-    
-    # Initialize chatbot
-    if 'chatbot' not in st.session_state:
-        st.session_state.chatbot = SurveyChatbot(analytics)
-        st.session_state.messages = []
-    
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.write(message["content"])
-            if "visualization" in message and message["visualization"]:
-                st.image(f"data:image/png;base64,{message['visualization']}")
-    
-    # Get user input
-    if prompt := st.chat_input("Ask about your survey data"):
         # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": prompt})
+        st.session_state.messages.append({"role": "user", "content": user_message})
         
-        # Display user message
-        with st.chat_message("user"):
-            st.write(prompt)
+        # Clear the input box
+        st.session_state.input_field = ""
         
         # Get response from chatbot
-        with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
-                response = st.session_state.chatbot.ask(prompt)
-                st.write(response["text"])
-                if response["visualization"]:
-                    st.image(f"data:image/png;base64,{response['visualization']}")
+        with st.spinner("Thinking..."):
+            response = st.session_state.chatbot.ask(user_message)
+            
+            # Add assistant response to chat history
+            st.session_state.messages.append({
+                "role": "assistant", 
+                "content": response["text"],
+                "visualization": response["visualization"] if "visualization" in response else None
+            })
         
-        # Add assistant response to chat history
-        st.session_state.messages.append({
-            "role": "assistant", 
-            "content": response["text"],
-            "visualization": response["visualization"]
-        })
+        # Force a rerun to update the UI
+        st.rerun()
+
+def main():
+    # Custom CSS to match the design in the images
+    st.markdown("""
+    <style>
+    /* Main theme colors */
+    :root {
+        --main-bg-color: #ffffff;
+        --accent-color: #4CAF50;  /* Green accent color from the send button */
+        --border-color: #e0e0e0;
+        --text-color: #333333;
+        --light-bg: #f8f9fa;
+    }
+    
+    /* Page styling */
+    .stApp {
+        background-color: var(--main-bg-color);
+    }
+    
+    /* Header styling */
+    h1, h2, h3 {
+        color: var(--text-color);
+        font-weight: 600;
+    }
+    
+    /* Chat container styling */
+    .chat-container {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        background-color: var(--main-bg-color);
+    }
+    
+    /* Message styling - improved colors */
+    .user-message {
+        background-color: #E9F7EF;  /* Light green background */
+        color: #333333;  /* Dark text for contrast */
+        border-radius: 18px;
+        padding: 10px 15px;
+        margin: 5px 0;
+        max-width: 80%;
+        align-self: flex-end;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .assistant-message {
+        background-color: #F5F5F5;  /* Light gray background */
+        color: #333333;  /* Dark text for contrast */
+        border-radius: 18px;
+        padding: 10px 15px;
+        margin: 5px 0;
+        max-width: 80%;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Custom button styling */
+    .stButton>button {
+        background-color: var(--accent-color);
+        color: white;
+        border-radius: 20px;
+        border: none;
+        padding: 5px 15px;
+    }
+    
+    /* Chat input styling - cleaner edges and better focus */
+    .stTextInput>div>div>input {
+        border-radius: 20px;
+        border: 1px solid #e0e0e0;  /* Lighter border */
+        padding: 10px 15px;
+        background-color: white;
+        color: #000000;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);  /* Subtle shadow */
+        transition: all 0.2s ease;
+    }
+    
+    /* Input focus state */
+    .stTextInput>div>div>input:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 1px 3px rgba(76, 175, 80, 0.2);
+        outline: none;
+    }
+    
+    /* Send button styling */
+    div[data-testid="stButton"] > button {
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    div[data-testid="stButton"] > button:hover {
+        background-color: #3d8b40;  /* Darker green on hover */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Hide sidebar by default */
+    [data-testid="stSidebar"][aria-expanded="true"] {
+        display: none;
+    }
+    
+    /* Center the main content */
+    .main .block-container {
+        max-width: 1000px;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin: 0 auto;
+    }
+    
+    /* Remove padding from the main container */
+    .stApp {
+        padding-top: 0;
+    }
+    
+    /* Hide fullscreen button and other menu options */
+    .stDeployButton, .stToolbar {
+        display: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Main chat interface container
+    with st.container():
+        # Header section with title and description
+        st.markdown("""
+        <div class="chat-container">
+            <h2 style="color: #333; margin-bottom: 20px; text-align: center;">
+                How can we <span style="color: #4CAF50;">assist</span> you today?
+            </h2>
+            <p style="color: #666; margin-bottom: 30px; text-align: center;">
+                Ask Insight Bot anything about your survey responses! Get real-time analytics, 
+                trends, and key insights in seconds. Just type your question and uncover the 
+                data-driven answers you need.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Create a container for chat messages
+        chat_container = st.container()
+        
+        # Display chat messages with custom styling
+        with chat_container:
+            for message in st.session_state.messages:
+                if message["role"] == "user":
+                    st.markdown(f"""
+                    <div style="display: flex; justify-content: flex-end;">
+                        <div class="user-message">
+                            {message["content"]}
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+                else:
+                    st.markdown(f"""
+                    <div style="display: flex; justify-content: flex-start;">
+                        <div class="assistant-message">
+                            {message["content"]}
+                        </div>
+                    </div>
+                    """, unsafe_allow_html=True)
+                    
+                    if "visualization" in message and message["visualization"]:
+                        st.image(f"data:image/png;base64,{message['visualization']}")
+        
+        # Simple input and button with callback for Enter key
+        st.markdown('<div style="max-width: 800px; margin: 0 auto;">', unsafe_allow_html=True)
+        col1, col2 = st.columns([6, 1])
+        
+        with col1:
+            # Use on_change to handle Enter key press
+            st.text_input(
+                "Ask anything", 
+                key="input_field", 
+                label_visibility="collapsed",
+                on_change=send_message
+            )
+        
+        with col2:
+            if st.button("Send", key="send_button"):
+                send_message()
+        
+        st.markdown('</div>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
