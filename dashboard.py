@@ -17,30 +17,19 @@ if 'chatbot' not in st.session_state:
 if 'messages' not in st.session_state:
     st.session_state.messages = []
 
-# Function to handle message sending
-def send_message():
+# Add a flag to track if we need to process a message
+if 'process_message' not in st.session_state:
+    st.session_state.process_message = False
+    
+if 'current_message' not in st.session_state:
+    st.session_state.current_message = ""
+
+# Function to set the message processing flag
+def set_message_to_process():
     if st.session_state.input_field and st.session_state.input_field.strip():
-        user_message = st.session_state.input_field
-        
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": user_message})
-        
-        # Clear the input box
-        st.session_state.input_field = ""
-        
-        # Get response from chatbot
-        with st.spinner("Thinking..."):
-            response = st.session_state.chatbot.ask(user_message)
-            
-            # Add assistant response to chat history
-            st.session_state.messages.append({
-                "role": "assistant", 
-                "content": response["text"],
-                "visualization": response["visualization"] if "visualization" in response else None
-            })
-        
-        # Force a rerun to update the UI
-        st.rerun()
+        st.session_state.current_message = st.session_state.input_field
+        st.session_state.process_message = True
+        st.session_state.input_field = ""  # Clear the input box
 
 def main():
     # Custom CSS to match the design in the images
@@ -215,19 +204,44 @@ def main():
         col1, col2 = st.columns([6, 1])
         
         with col1:
-            # Use on_change to handle Enter key press
+            # Use on_change to handle Enter key press but don't process in the callback
             st.text_input(
                 "Ask anything", 
                 key="input_field", 
                 label_visibility="collapsed",
-                on_change=send_message
+                on_change=set_message_to_process
             )
         
         with col2:
             if st.button("Send", key="send_button"):
-                send_message()
+                set_message_to_process()
         
         st.markdown('</div>', unsafe_allow_html=True)
+        
+        # Process message outside of any callbacks
+        if st.session_state.process_message:
+            user_message = st.session_state.current_message
+            
+            # Add user message to chat history
+            st.session_state.messages.append({"role": "user", "content": user_message})
+            
+            # Get response from chatbot
+            with st.spinner("Thinking..."):
+                response = st.session_state.chatbot.ask(user_message)
+                
+                # Add assistant response to chat history
+                st.session_state.messages.append({
+                    "role": "assistant", 
+                    "content": response["text"],
+                    "visualization": response["visualization"] if "visualization" in response else None
+                })
+            
+            # Reset the flag
+            st.session_state.process_message = False
+            st.session_state.current_message = ""
+            
+            # Now we can safely rerun
+            st.rerun()
 
 if __name__ == "__main__":
     main()
