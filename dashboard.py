@@ -2,6 +2,7 @@ import streamlit as st
 import os
 from survey_analytics import SurveyAnalytics
 from survey_chatbot import SurveyChatbot
+from chat_history.chat_history_manager import ChatHistoryManager
 
 # Set page config must be the first Streamlit command
 st.set_page_config(page_title="Survey Insight Bot", page_icon="📊", layout="wide")
@@ -13,10 +14,29 @@ if 'analytics' not in st.session_state:
     
 if 'chatbot' not in st.session_state:
     st.session_state.chatbot = SurveyChatbot(st.session_state.analytics)
-    
-if 'messages' not in st.session_state:
-    st.session_state.messages = []
 
+# Initialize chat history manager
+if 'chat_history_manager' not in st.session_state:
+    st.session_state.chat_history_manager = ChatHistoryManager()
+
+# Initialize current chat ID
+if 'current_chat_id' not in st.session_state:
+    # Try to get the most recent chat or create a new one
+    chats = st.session_state.chat_history_manager.get_all_chats()
+    if chats:
+        st.session_state.current_chat_id = chats[0]['id']
+        st.session_state.messages = chats[0].get('messages', [])
+    else:
+        st.session_state.current_chat_id = st.session_state.chat_history_manager.create_new_chat()
+        st.session_state.messages = []
+elif 'messages' not in st.session_state:
+    # Load messages for the current chat
+    current_chat = st.session_state.chat_history_manager.get_chat(st.session_state.current_chat_id)
+    if current_chat:
+        st.session_state.messages = current_chat.get('messages', [])
+    else:
+        st.session_state.messages = []
+    
 # Add a flag to track if we need to process a message
 if 'process_message' not in st.session_state:
     st.session_state.process_message = False
@@ -30,6 +50,36 @@ def set_message_to_process():
         st.session_state.current_message = st.session_state.input_field
         st.session_state.process_message = True
         st.session_state.input_field = ""  # Clear the input box
+
+# Function to create a new chat
+def create_new_chat():
+    st.session_state.current_chat_id = st.session_state.chat_history_manager.create_new_chat()
+    st.session_state.messages = []
+    st.rerun()
+
+# Function to switch to a different chat
+def switch_to_chat(chat_id):
+    st.session_state.current_chat_id = chat_id
+    current_chat = st.session_state.chat_history_manager.get_chat(chat_id)
+    st.session_state.messages = current_chat.get('messages', [])
+    st.rerun()
+
+# Function to delete a chat
+def delete_chat(chat_id):
+    st.session_state.chat_history_manager.delete_chat(chat_id)
+    
+    # If we deleted the current chat, switch to another
+    if chat_id == st.session_state.current_chat_id:
+        chats = st.session_state.chat_history_manager.get_all_chats()
+        if chats:
+            st.session_state.current_chat_id = chats[0]['id']
+            st.session_state.messages = chats[0].get('messages', [])
+        else:
+            # No chats left, create a new one
+            st.session_state.current_chat_id = st.session_state.chat_history_manager.create_new_chat()
+            st.session_state.messages = []
+    
+    st.rerun()
 
 def main():
     # Custom CSS to match the design in the images
@@ -132,30 +182,178 @@ def main():
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
-    /* Hide sidebar by default */
-    [data-testid="stSidebar"][aria-expanded="true"] {
-        display: none;
-    }
-    
-    /* Center the main content */
-    .main .block-container {
-        max-width: 1000px;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        margin: 0 auto;
-    }
-    
-    /* Remove padding from the main container */
-    .stApp {
-        padding-top: 0;
-    }
-    
     /* Hide fullscreen button and other menu options */
     .stDeployButton, .stToolbar {
         display: none !important;
     }
+    
+    /* Sidebar styling */
+    section[data-testid="stSidebar"] {
+        background-color: #222222;
+        border-right: 1px solid #333333;
+        padding: 1rem;
+        width: 250px;
+    }
+    
+    section[data-testid="stSidebar"] > div {
+        background-color: #222222;
+    }
+    
+    /* Make sure the sidebar is visible */
+    [data-testid="stSidebar"][aria-expanded="true"] {
+        margin-left: 0px;
+        visibility: visible !important;
+    }
+    
+    /* Sidebar toggle button */
+    button[kind="headerNoPadding"] {
+        display: block !important;
+    }
+    
+    /* Layout adjustments for main content */
+    .main .block-container {
+        max-width: calc(100% - 250px);
+        padding: 2rem;
+        margin-left: 250px;
+    }
+    
+    /* Chat history item styling */
+    .chat-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: #e0e0e0;
+        text-decoration: none;
+        background-color: #333333;
+    }
+    
+    .chat-item:hover {
+        background-color: #444444;
+    }
+    
+    .chat-item.active {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: 500;
+    }
+    
+    .chat-item-icon {
+        margin-right: 10px;
+        font-size: 16px;
+    }
+    
+    .chat-item-text {
+        flex-grow: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .chat-item-delete {
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 5px;
+    }
+    
+    .chat-item-delete:hover {
+        opacity: 1;
+    }
+    
+    /* Sidebar divider */
+    .sidebar-divider {
+        margin: 20px 0;
+        border-top: 1px solid #444444;
+    }
+    
+    /* New chat button styling */
+    .new-chat-btn {
+        display: block;
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        margin-bottom: 20px;
+        text-align: center;
+        transition: background-color 0.2s ease;
+    }
+    
+    .new-chat-btn:hover {
+        background-color: #3d8b40;
+    }
+    
+    /* Sidebar header */
+    .sidebar-header {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    /* Hide default Streamlit elements in sidebar */
+    section[data-testid="stSidebar"] .stMarkdown p {
+        font-size: 14px;
+        color: #e0e0e0;
+    }
+    
+    /* Style buttons in sidebar */
+    section[data-testid="stSidebar"] button[kind="secondary"] {
+        background-color: #333333;
+        color: #e0e0e0;
+        border: none;
+    }
+    
+    section[data-testid="stSidebar"] button[kind="secondary"]:hover {
+        background-color: #444444;
+        color: white;
+    }
+    
     </style>
     """, unsafe_allow_html=True)
+    
+    # Chat history sidebar
+    with st.sidebar:
+        st.markdown('<div class="sidebar-header">Chat History</div>', unsafe_allow_html=True)
+        
+        # New chat button - only one button now
+        if st.button("+ New Chat", key="new_chat_btn", use_container_width=True):
+            create_new_chat()
+        
+        st.markdown("<div class='sidebar-divider'></div>", unsafe_allow_html=True)
+        
+        # List all chats with improved styling
+        chats = st.session_state.chat_history_manager.get_all_chats()
+        if not chats:
+            st.markdown("<p style='color: #888; text-align: center; padding: 20px 0;'>No chat history yet</p>", unsafe_allow_html=True)
+        else:
+            for chat in chats:
+                chat_id = chat['id']
+                chat_name = chat['name']
+                
+                # Create a clickable chat item with better styling
+                is_active = chat_id == st.session_state.current_chat_id
+                active_class = "active" if is_active else ""
+                
+                col1, col2 = st.columns([9, 1])
+                
+                with col1:
+                    if st.button(chat_name, key=f"chat_{chat_id}", use_container_width=True, 
+                                type="primary" if is_active else "secondary"):
+                        switch_to_chat(chat_id)
+                
+                with col2:
+                    if st.button("🗑️", key=f"delete_{chat_id}"):
+                        delete_chat(chat_id)
     
     # Main chat interface container
     with st.container():
@@ -225,6 +423,13 @@ def main():
             # Add user message to chat history
             st.session_state.messages.append({"role": "user", "content": user_message})
             
+            # Save to TinyDB
+            st.session_state.chat_history_manager.add_message_to_chat(
+                st.session_state.current_chat_id,
+                "user",
+                user_message
+            )
+            
             # Get response from chatbot
             with st.spinner("Thinking..."):
                 response = st.session_state.chatbot.ask(user_message)
@@ -235,6 +440,14 @@ def main():
                     "content": response["text"],
                     "visualization": response["visualization"] if "visualization" in response else None
                 })
+                
+                # Save to TinyDB
+                st.session_state.chat_history_manager.add_message_to_chat(
+                    st.session_state.current_chat_id,
+                    "assistant",
+                    response["text"],
+                    response["visualization"] if "visualization" in response else None
+                )
             
             # Reset the flag
             st.session_state.process_message = False
